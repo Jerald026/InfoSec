@@ -20,7 +20,7 @@ $row = $posts->fetch_assoc();
 if($row['userID'] == $userID && $row['postID'] == $id) {
     echo "<div class='float-right'> Welcome <b> ".$_SESSION['UserLogin']." </b> Role: <b> ".$_SESSION['Access']."</b></div> <br>";
  } else {
-    echo header("Location: myPosts.php");
+     echo header("Location: myPosts.php");
 }
 
 
