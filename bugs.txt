@@ -1,9 +1,5 @@
 1. Login verification using hash
 
-a. Fetch the match username
-b. Get the password
-c. Use the password_verify for verification
-
 DONE
 
 2. Editing a password
@@ -11,3 +7,24 @@ DONE
 DONE
 
 3. Logout session
+
+4. Editing a post, getting the postID
+
+    a. in edit button, store the post id value to a session variable named "PostID"
+    b. in edit post page, get the session variable "PostID"
+    c. make a condition that refresh the page if the userID != post.userID AND postID = post.postID otherwise redirect to the myPost page
+
+Database:
+
+Log_ID
+
+Log_Type
+    Error
+    Warning
+    Debug
+    Info
+
+Log_Lvl
+Datetime
+Log_Message
+

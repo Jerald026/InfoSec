@@ -27,7 +27,7 @@ function createTables($con) {
     $con->query($usersTable) or die ($con->error);
 
     $password = password_hash('Admin123!', PASSWORD_BCRYPT);
-    $insertAdmin = "INSERT INTO `users` (`userID`, `firstName`, `lastName`, `email`, `password`, `access`) VALUES (NULL, 'Admin', 'Admin', 'admin@admin.com', $password, 'admin')";
+    $insertAdmin = "INSERT INTO `users` (`userID`, `firstName`, `lastName`, `email`, `password`, `access`) VALUES (NULL, 'Admin', 'Admin', 'admin@admin.com', '$password', 'admin')";
     $con->query($insertAdmin) or die ($con->error);
 
     $postsTable =
@@ -42,8 +42,18 @@ function createTables($con) {
     $con->query($postsTable) or die ($con->error);
     $con->query($postsForeignKey) or die ($con->error);
 
+    $syslogsTable =
+    "CREATE TABLE `syslogs` (".
+        "`Log_ID` int AUTO_INCREMENT PRIMARY KEY,".
+        "`Log_Type` varchar(10) NOT NULL,".
+        "`Level` int(11) NOT NULL,".
+        "`Timestamp` datetime NOT NULL,".
+        "`Message` varchar(255) NOT NULL)";
+    $con->query($syslogsTable) or die ($con->error);
+
     $con->close();
 }
+
 
 
 createDatabase();
@@ -62,7 +72,7 @@ createTables($con);
 </head>
 
 <body>
-    <p> Database Created! <button class="btn btn-link"> Go to Login!
+    <p> Database Created! <a class="btn btn-link" href="/"> Go to Login!
         </button></p>
 </body>
 

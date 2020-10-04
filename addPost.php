@@ -24,7 +24,7 @@ if(isset($_POST['myPost'])) {
     $userID = $_SESSION['ID'];
     $subject = $_POST['postSubject'];
     $body = $_POST['postBody'];
-    $dateAdded = date('Y-m-d H:i:s');;
+    $dateAdded = date('Y-m-d H:i:s');
     $sql = "INSERT INTO `posts` (`userID`,`subject`,`body`,`dateAdded`) VALUES ('$userID','$subject','$body', '$dateAdded')";
 
     $con->query($sql) or die($con->error);

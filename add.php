@@ -43,9 +43,12 @@ if(isset($_POST['submit'])) {
     } else {
         die("Error: Invalid Password!");
     }
+
+    
+    $hash = password_hash($password, PASSWORD_BCRYPT);
     session_regenerate_id(true);// 02/10/2020
     $access = $_POST['access'];
-    $sql = "INSERT INTO `users` (`firstName`,`lastName`,`email`,`password`,`access`) VALUES ('$firstName','$lastName','$email','$password', '$access')";
+    $sql = "INSERT INTO `users` (`firstName`,`lastName`,`email`,`password`,`access`) VALUES ('$firstName','$lastName','$email','$hash', '$access')";
 
     $con->query($sql) or die($con->error);
 

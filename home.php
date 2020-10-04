@@ -81,6 +81,9 @@ if(isset($_SESSION['UserLogin'])) {
             <br>
 
             <!-- Recent Posts -->
+
+            
+            <h3> &nbsp;&nbsp;News Feed </h3>
             <?php if($posts->num_rows > 0) { ?>
             <h3>&nbsp;&nbsp; Recent Posts </h3>
             <?php do { ?>
